@@ -30,7 +30,7 @@ Below is a flowchart illustrating the primary interactions with the **SimpleQuiz
 The contract is currently deployed on the Ethereum Rinkeby Testnet at the following address:
 
 ```
-0xYourContractAddressHere
+0x28ea90bd4587d41fe121cfe67038d5e312b4df0e
 ```
 
 Please replace `0xYourContractAddressHere` with the actual address upon deployment.
