@@ -1,4 +1,5 @@
 Here is a README file tailored for the `SimpleQuiz` Solidity smart contract project:
+![image](https://github.com/user-attachments/assets/95e1c094-5728-46fc-8a0d-3c6f5215eadc)
 
 ```markdown
 # SimpleQuiz Smart Contract
