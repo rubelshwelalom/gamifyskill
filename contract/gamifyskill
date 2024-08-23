@@ -1,0 +1,43 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract SimpleQuiz {
+
+    // Define the quiz structure
+    struct Quiz {
+        string question;
+        string[] options;
+        uint256 correctAnswerIndex;
+    }
+
+    // Map to store quizzes with unique IDs
+    mapping(uint256 => Quiz) public quizzes;
+
+    // Index for assigning unique IDs to quizzes
+    uint256 private quizIndex;
+
+    // Constructor for initializing the contract
+    constructor() {}
+
+    // Function to create a new quiz
+    function createQuiz(string memory _question, string[] memory _options, uint256 _correctAnswerIndex) public {
+        require(_options.length > 0, "Must provide at least one option");
+        require(_correctAnswerIndex < _options.length, "Invalid correct answer index");
+
+        // Create a new quiz with the provided data
+        Quiz memory newQuiz = Quiz(_question, _options, _correctAnswerIndex);
+
+        // Assign a unique ID to the quiz
+        quizzes[quizIndex] = newQuiz;
+        quizIndex++;
+    }
+
+    // Function to attempt a quiz
+    function attemptQuiz(uint256 _quizId, uint256 _selectedAnswerIndex) public view returns (bool) {
+        // Retrieve the quiz from the mapping
+        Quiz memory quiz = quizzes[_quizId];
+
+        // Check if the selected answer is correct
+        return _selectedAnswerIndex == quiz.correctAnswerIndex;
+    }
+}
